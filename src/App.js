@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+ import React from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Features from "./components/Features";
+import HorizontalCards from "./components/HorizontalCards";
+import Footer from "./components/Footer";
+import Login from "./components/Login";
+
+const MainContent = () => {
+  const location = useLocation();
+
+  const isLoginPage = location.pathname === "/login";
+
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              {!isLoginPage && <Hero />}
+              {!isLoginPage && <Features />}
+              {!isLoginPage && <HorizontalCards />}
+              {!isLoginPage && <Footer />}
+            </>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <MainContent />
+    </Router>
   );
 }
 
