@@ -1,10 +1,16 @@
  // Footer.js
 import React from 'react';
 import { Box, Grid, Typography, Link } from '@mui/material';
+import {
+  Button,
+} from "@mui/material"; 
+import { motion } from "framer-motion";
+
 
 const Footer = () => {
   return (
-    <Box sx={{ backgroundColor: '#4B65F6', color: '#fff', py: 6, px: 4 }}>
+     
+     <Box sx={{ backgroundColor: '#4B65F6', color: '#fff', py: 6, px: 4 }}>
       <Box sx={{ mb: 4 }}>
         <Typography
           variant="h6"

@@ -118,6 +118,8 @@ const Header = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
               <Button
                 variant="contained"
+                component={Link}
+                 to="/contact"
                 sx={{
                   backgroundColor: "#4B7BFF",
                   color: "#fff",
